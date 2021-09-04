@@ -27,7 +27,7 @@ if __name__ == "__main__":
     board_uid = board_url.split("u=")[-1]
 
     # We need to load the board URL _before_ we request the board data,
-    # otherwise Wordtwist will complain that the game has already been completed.
+    # otherwise WordTwist will complain that the game has already been completed.
     driver.get(board_url)
     data_url = f"https://wordtwist.puzzlebaron.com/boarddata.php?uid={board_uid}"
     board_data = json.loads(requests.get(data_url).text)

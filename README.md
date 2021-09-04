@@ -1,6 +1,6 @@
 # Untwist
 
-> A proof-of-concept [Wordtwist](https://wordtwist.puzzlebaron.com/) bot.
+> A proof-of-concept [WordTwist](https://wordtwist.puzzlebaron.com/) bot.
 
 ## Disclaimer
 
@@ -23,7 +23,7 @@ poetry run python play.py
 
 ## How it works
 
-- When you start a game, the Wordtwist client asks their server for a list of valid words
+- When you start a game, the WordTwist client asks their server for a list of valid words
 - We can trivially replicate this request in order to retrieve the board data
 - However, we need to load the board URL _before_ requesting the data, otherwise Wordtwist will complain that the game has already been completed
 
