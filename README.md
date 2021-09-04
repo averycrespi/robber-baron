@@ -1,17 +1,31 @@
-# Python Poetry Template
+# Untwist
 
-> A template for starting a Python project with Poetry in VS Code.
+> A proof-of-concept [Wordtwist](https://wordtwist.puzzlebaron.com/) bot.
 
-Contains the following dev dependencies:
-- [Bandit](https://github.com/PyCQA/bandit) for security warnings
-- [Black](https://github.com/psf/black) for formatting
-- [Flake8](https://github.com/pycqa/flake8) for linting
-- [MyPy](https://github.com/python/mypy) for static typing
+## Disclaimer
 
-## Getting Started
+This bot probably violates Puzzle Baron's Site Terms & Rules. Use at your own risk!
 
-- Update project metadata in `pyproject.toml`.
-- Run `poetry install`.
+## Requirements
+
+- [Poetry](https://python-poetry.org/)
+- [Google Chrome](https://www.google.com/chrome/)
+- [chromedriver](https://chromedriver.chromium.org/) in your `PATH`
+
+## Getting started
+
+```sh
+git clone https://github.com/averycrespi/untwist.git
+cd untwist
+poetry install
+poetry run python play.py
+```
+
+## How it works
+
+- When you start a game, the Wordtwist client asks their server for a list of valid words
+- We can trivially replicate this request in order to retrieve the board data
+- However, we need to load the board URL _before_ requesting the data, otherwise Wordtwist will complain that the game has already been completed
 
 ## License
 

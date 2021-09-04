@@ -1,18 +1,21 @@
 [tool.poetry]
 authors = ["Avery Crespi <averycrespi@gmail.com>"]
-description = ""
+description = "A proof-of-concept Wordtwist bot"
 license = "MIT"
-name = "python-poetry-template"
+name = "untwist"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+requests = "^2.26.0"
+selenium = "^3.141.0"
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.0"
 black = "^21.7b0"
 flake8 = "^3.9.2"
 mypy = "^0.910"
+types-requests = "^2.25.6"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
