@@ -1,3 +1,4 @@
+from argparse import ArgumentParser
 import json
 import requests
 from selenium import webdriver
@@ -7,19 +8,36 @@ import time
 from robber_baron import find_element
 
 
-BOARD_SIZE = 4  # 4 or 5
+BOARD_SIZES = (4, 5)
+
+
+def parse_args():
+    """Parse command-line arguments."""
+    parser = ArgumentParser(description="Play Wordtwist")
+    parser.add_argument(
+        "-b",
+        "--board-size",
+        type=int,
+        default=4,
+        choices=BOARD_SIZES,
+        help="Board size; default 4",
+    )
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
+    args = parse_args()
     driver = webdriver.Chrome()
 
-    new_game_url = f"https://wordtwist.puzzlebaron.com/init{BOARD_SIZE}.php"
+    new_game_url = f"https://wordtwist.puzzlebaron.com/init{args.board_size}.php"
     print(f"Loading new game URL: {new_game_url} ...")
     driver.get(new_game_url)
     board_url = find_element(driver, "div#newgameboard a").get_attribute("href")
     board_uid = board_url.split("u=")[-1]
     print(f"Extracted board UID: {board_uid}")
 
+    # We need load the board URL _before_ requesting the board data,
+    # otherwise WordTwist will complain that the game has already been completed
     print(f"Loading board URL: {board_url} ...")
     driver.get(board_url)
     data_url = f"https://wordtwist.puzzlebaron.com/boarddata.php?uid={board_uid}"
