@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-from common import find_element
+from robber_baron import find_element
 
 
 BOARD_SIZE = 4  # 4 or 5
