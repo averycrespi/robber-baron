@@ -1,10 +1,10 @@
-# Untwist
+# Robber Baron
 
-> A proof-of-concept [WordTwist](https://wordtwist.puzzlebaron.com/) bot.
+> Bots for [Puzzle Baron](https://www.puzzlebaron.com/) games.
 
 ## Disclaimer
 
-This bot probably violates Puzzle Baron's Site Terms & Rules. Use at your own risk!
+These bots probably violates Puzzle Baron's Site Terms & Rules. Use at your own risk!
 
 ## Requirements
 
@@ -15,17 +15,13 @@ This bot probably violates Puzzle Baron's Site Terms & Rules. Use at your own ri
 ## Getting started
 
 ```sh
-git clone https://github.com/averycrespi/untwist.git
-cd untwist
+git clone https://github.com/averycrespi/robber-baron.git
+cd robber-baron
 poetry install
-poetry run python play.py
+
+# Run the Wordtwist bot
+poetry run python robber_baron/wordtwist.py
 ```
-
-## How it works
-
-- When you start a game, the WordTwist client asks their server for a list of valid words
-- We can trivially replicate this request in order to retrieve the board data
-- However, we need to load the board URL _before_ requesting the data, otherwise Wordtwist will complain that the game has already been completed
 
 ## License
 

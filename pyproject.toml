@@ -1,8 +1,8 @@
 [tool.poetry]
 authors = ["Avery Crespi <averycrespi@gmail.com>"]
-description = "A proof-of-concept Wordtwist bot"
+description = "Bots for Puzzle Baron games"
 license = "MIT"
-name = "untwist"
+name = "robber_baron"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
