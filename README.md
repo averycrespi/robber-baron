@@ -19,9 +19,16 @@ git clone https://github.com/averycrespi/robber-baron.git
 cd robber-baron
 poetry install
 
-# Run the Wordtwist bot
+# E.g. run the WordTwist bot
 poetry run python robber_baron/wordtwist.py
 ```
+
+## Available bots
+
+| Game      | Solution method |
+|-----------|------------------|
+| [Campsites](https://campsites.puzzlebaron.com/) | Model with MiniZinc and verify with MD5 digest |
+| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server |
 
 ## License
 
