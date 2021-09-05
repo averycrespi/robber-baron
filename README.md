@@ -28,7 +28,7 @@ poetry run python robber_baron/wordtwist.py
 | Game      | Solution method |
 |-----------|------------------|
 | [Campsites](https://campsites.puzzlebaron.com/) | Model with MiniZinc and verify with MD5 digest |
-| [Campsites](https://sudoku.puzzlebaron.com/) | Model with MiniZinc |
+| [Sudoku](https://sudoku.puzzlebaron.com/) | Model with MiniZinc |
 | [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server |
 
 ## License
