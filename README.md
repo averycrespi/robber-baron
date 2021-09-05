@@ -8,9 +8,9 @@ These bots probably violates Puzzle Baron's Site Terms & Rules. Use at your own 
 
 ## Requirements
 
-- [Poetry](https://python-poetry.org/)
-- [Google Chrome](https://www.google.com/chrome/)
-- [chromedriver](https://chromedriver.chromium.org/) in your `PATH`
+- [Poetry](https://python-poetry.org/) dependency manager
+- [Google Chrome](https://www.google.com/chrome/) with [chromedriver](https://chromedriver.chromium.org/) in your `PATH`
+- [MiniZinc](https://www.minizinc.org/) constraint modeler
 
 ## Getting started
 

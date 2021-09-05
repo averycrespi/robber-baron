@@ -15,7 +15,7 @@ def parse_args():
     """Parse command-line arguments."""
     parser = ArgumentParser(description="Play Wordtwist")
     parser.add_argument(
-        "-b",
+        "-s",
         "--board-size",
         type=int,
         default=4,
