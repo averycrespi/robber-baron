@@ -47,6 +47,10 @@ class Browser:
         """Select an option by value."""
         Select(element).select_by_value(value)
 
+    def request_history(self) -> Any:
+        """Return the request history of the browser; requires a selenium-wire driver."""
+        return self._driver.requests
+
     def quit(self):
         """Quit the browser."""
         self._driver.quit()
@@ -69,6 +73,7 @@ class ConstraintSolver:
 class Bot:
     def __init__(
         self,
+        *,
         browser: Optional[Browser] = None,
         solver: Optional[ConstraintSolver] = None,
     ):
