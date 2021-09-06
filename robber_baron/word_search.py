@@ -47,17 +47,16 @@ class WordSearchBot(Bot):
 
         print("Submitting game ...")
         self.browser.execute_script(
-            "document.getElementById('form_timer').value = arguments[0]", timestamp
-        )
-        # "SHOTGUN" means competitive, "UNLIMITED" means casual
-        self.browser.execute_script(
-            "document.getElementById('form_type').value = arguments[0]", "SHOTGUN"
-        )
-        self.browser.execute_script(
-            "document.getElementById('form_words').value = arguments[0]", solution
-        )
-        self.browser.execute_script(
-            "document.getElementById('form_hints').value = arguments[0]", "0"
+            """
+            document.getElementById('form_timer').value = arguments[0];
+            document.getElementById('form_type').value = arguments[1];
+            document.getElementById('form_words').value = arguments[2];
+            document.getElementById('form_hints').value = arguments[3];
+            """,
+            timestamp,
+            "SHOTGUN",  # or "UNLIMITED"
+            solution,
+            "0",
         )
         self.browser.find_element("form#gameover").submit()
 
