@@ -35,4 +35,7 @@ constraint forall(j in C) (sum(tents[..,j]) == num_tents_in_col[j]);
 % The final solution will have `num_tents` tents
 constraint sum(tents) == sum(num_tents_in_row);
 
+% A tree and a tent cannot occupt the same space
+constraint forall(i in R, j in C) (not (trees[i,j] /\ tents[i,j]));
+
 solve satisfy;
