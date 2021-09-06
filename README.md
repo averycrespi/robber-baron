@@ -26,12 +26,12 @@ poetry run python robber_baron/wordtwist.py
 
 ## Available bots
 
-| Game      | Solution method |
-|-----------|-----------------|
-| [Campsites](https://campsites.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution |
-| [Sudoku](https://sudoku.puzzlebaron.com/) | Solve with MiniZinc, then fill grid manually |
-| [Word Search](https://wordsearch.puzzlebaron.com/) | Intercept board data request, then encode and submit solution |
-| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server, then encode and submit solution |
+| Game      | Solution method | In-game performance (configuration) |
+|-----------|-----------------|-------------------------------------|
+| [Campsites](https://campsites.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution | 5-10s (Extra Large, Challenging) |
+| [Sudoku](https://sudoku.puzzlebaron.com/) | Solve with MiniZinc, then fill grid manually | 5s (Insane) |
+| [Word Search](https://wordsearch.puzzlebaron.com/) | Intercept board data request, then encode and submit solution | Instantaneous due to time manipulation |
+| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server, then encode and submit solution | Time not measured |
 
 ## License
 
