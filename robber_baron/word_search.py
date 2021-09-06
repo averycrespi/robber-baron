@@ -24,7 +24,7 @@ class WordSearchBot(Bot):
         print("Loading board URL ...")
         self.browser.find_element('input[name="submit"]').click()
 
-        # Word Searches prevents you from loading the same board data URL twice,
+        # Word Search prevents you from loading the same board data URL twice,
         # so we need to intercept and parse the original request
         print("Extracting board data from request history ...")
         _ = self.browser.find_element("a#start")

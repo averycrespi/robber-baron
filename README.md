@@ -8,9 +8,10 @@ These bots probably violates Puzzle Baron's Site Terms & Rules. Use at your own 
 
 ## Requirements
 
-- [Poetry](https://python-poetry.org/) dependency manager
+- [Poetry](https://python-poetry.org/)
 - [Google Chrome](https://www.google.com/chrome/) with [chromedriver](https://chromedriver.chromium.org/) in your `PATH`
-- [MiniZinc](https://www.minizinc.org/) constraint modeler
+- [MiniZinc](https://www.minizinc.org/)
+- [OpenSSL](https://www.openssl.org/) for bots that intercept requests
 
 ## Getting started
 
