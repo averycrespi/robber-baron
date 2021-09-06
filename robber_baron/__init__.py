@@ -2,7 +2,6 @@ from minizinc import Instance, Model, Solver
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -47,11 +46,6 @@ class Browser:
     def select_by_value(self, element: WebElement, value: str):
         """Select an option by value."""
         Select(element).select_by_value(value)
-
-    def send_keys_with_return(self, element: WebElement, keys: str):
-        """Send keys to an element, followed by the return key."""
-        element.send_keys(keys)
-        element.send_keys(Keys.RETURN)
 
     def quit(self):
         """Quit the browser."""

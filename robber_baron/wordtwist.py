@@ -34,20 +34,26 @@ class WordTwistBot(Bot):
         data_url = f"https://wordtwist.puzzlebaron.com/boarddata.php?uid={board_uid}"
         print(f"Requesting board data from: {data_url} ...")
         board_data = json.loads(requests.get(data_url).text)
-        print(f"Parsed board data: {json.dumps(board_data)}")
+        print(f"Parsed board data containing {len(board_data['wordList'])} words")
 
-        # TODO: reverse engineer encoding logic instead of entering words manually
-        print("Starting game and entering words ...")
+        encoded_words = []
+        timestamp = str(int(time.time()))
+        for word, data in board_data["wordList"].items():
+            encoded_words.append(
+                "||" + "|".join((word, str(data["rarity"]), timestamp))
+            )
+        solution = "".join(encoded_words)
+        print(f"Encoded solution: {solution}")
+
+        print("Starting game ...")
         self.browser.find_element("a#start").click()
-        words = list(board_data["wordList"].keys())
-        word_input = self.browser.find_element("input#word")
-        for word in words:
-            self.browser.send_keys_with_return(word_input, word)
-            time.sleep(0.1)
 
         print("Submitting game ...")
-        self.browser.find_element("a#submit").click()
-        self.browser.find_element("div.TB_modal > div.alert a.yes").click()
+        self.browser.execute_script(
+            "document.getElementById('form_words').setAttribute('value', arguments[0])",
+            solution,
+        )
+        self.browser.find_element("form#gameover").submit()
 
 
 def parse_args():

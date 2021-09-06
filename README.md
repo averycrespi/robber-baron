@@ -29,7 +29,7 @@ poetry run python robber_baron/wordtwist.py
 |-----------|-----------------|
 | [Campsites](https://campsites.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution |
 | [Sudoku](https://sudoku.puzzlebaron.com/) | Solve with MiniZinc, then fill grid manually |
-| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server, then submit words manually |
+| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server, then encode and submit solution |
 
 ## License
 
