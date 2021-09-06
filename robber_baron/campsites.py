@@ -49,12 +49,12 @@ class CampsitesBot(Bot):
         print(f"Loading new game URL: {new_game_url} ...")
         self.browser.get(new_game_url)
 
-        print(f"Setting puzzle size to: {str(difficulty)} ...")
+        print(f"Setting puzzle size to: {str(size)} ...")
         self.browser.select_by_value(
             self.browser.find_element('select[name="sg"]'), str(size_id)
         )
 
-        print(f"Setting puzzle difficulty to: {str(size)} ...")
+        print(f"Setting puzzle difficulty to: {str(difficulty)} ...")
         self.browser.select_by_value(
             self.browser.find_element('select[name="sd"]'),
             str(difficulty_id),
