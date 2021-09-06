@@ -36,9 +36,9 @@ DIFFICULTY_IDS = {
 }
 
 
-class NumbergridBot(Bot):
+class NumbergridsBot(Bot):
     def play(self, size: Size, difficulty: Difficulty):
-        """Play a Numbergrid game."""
+        """Play a Numbergrids game."""
         grid_size = int(str(size))
 
         new_game_url = "https://numbergrids.puzzlebaron.com/init.php"
@@ -112,7 +112,7 @@ class NumbergridBot(Bot):
 
 def parse_args():
     """Parse command-line arguments."""
-    parser = ArgumentParser(description="Play a Numbergrid game")
+    parser = ArgumentParser(description="Play a Numbergrids game")
     parser.add_argument(
         "-s",
         "--size",
@@ -135,7 +135,7 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     # Chuffed has much better performance than Gecode for this problem
-    bot = NumbergridBot(solver=ConstraintSolver("chuffed"))
+    bot = NumbergridsBot(solver=ConstraintSolver("chuffed"))
     bot.play(args.size, args.difficulty)
 
     input("Press enter to quit: ")

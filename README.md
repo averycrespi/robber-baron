@@ -29,7 +29,7 @@ poetry run python robber_baron/wordtwist.py
 | Game      | Solution method | In-game performance (configuration) |
 |-----------|-----------------|-------------------------------------|
 | [Campsites](https://campsites.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution | 5-10s (Extra Large, Challenging) |
-| [Numbergrid](https://numbergrid.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution | 10-20s (25x25, Fiendish) |
+| [Numbergrids](https://numbergrids.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution | 10-20s (25x25, Fiendish) |
 | [Sudoku](https://sudoku.puzzlebaron.com/) | Solve with MiniZinc, then fill grid manually | 5s (Insane) |
 | [Word Search](https://wordsearch.puzzlebaron.com/) | Intercept board data request, then encode and submit solution | Instantaneous due to time manipulation |
 | [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server, then encode and submit solution | Time not measured |
