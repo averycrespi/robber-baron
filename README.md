@@ -26,10 +26,10 @@ poetry run python robber_baron/wordtwist.py
 ## Available bots
 
 | Game      | Solution method |
-|-----------|------------------|
-| [Campsites](https://campsites.puzzlebaron.com/) | Model with MiniZinc and verify with MD5 digest |
-| [Sudoku](https://sudoku.puzzlebaron.com/) | Model with MiniZinc |
-| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server |
+|-----------|-----------------|
+| [Campsites](https://campsites.puzzlebaron.com/) | Solve with MiniZinc, then encode and submit solution |
+| [Sudoku](https://sudoku.puzzlebaron.com/) | Solve with MiniZinc, then fill grid manually |
+| [WordTwist](https://wordtwist.puzzlebaron.com/) | Request board data from server, then submit words manually |
 
 ## License
 
