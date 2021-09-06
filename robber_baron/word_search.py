@@ -6,9 +6,9 @@ from seleniumwire import webdriver
 from robber_baron import Bot, Browser
 
 
-class WordSearchesBot(Bot):
+class WordSearchBot(Bot):
     def play(self):
-        """Play a Word Searches game."""
+        """Play a Word Search game."""
         new_game_url = "https://wordsearch.puzzlebaron.com/init.php"
         print(f"Loading new game URL: {new_game_url} ...")
         self.browser.get(new_game_url)
@@ -64,13 +64,13 @@ class WordSearchesBot(Bot):
 
 def parse_args():
     """Parse command-line arguments."""
-    parser = ArgumentParser(description="Play a Word Searches game")
+    parser = ArgumentParser(description="Play a Word Search game")
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     _ = parse_args()
-    bot = WordSearchesBot(browser=Browser(webdriver.Chrome))
+    bot = WordSearchBot(browser=Browser(webdriver.Chrome))
     bot.play()
 
     input("Press enter to quit: ")
