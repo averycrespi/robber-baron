@@ -32,6 +32,7 @@ class WordSearchBot(Bot):
         board_data = None
         for request in self.browser.request_history():
             if request.url.startswith(prefix):
+                # TODO: make this less brittle
                 board_data = brotli.decompress(request.response.body).decode("utf-8")
                 break
         else:
@@ -69,6 +70,7 @@ def parse_args():
 
 if __name__ == "__main__":
     _ = parse_args()
+    # We need to be able to intercept requests for this game
     bot = WordSearchBot(browser=Browser(webdriver.Chrome))
     bot.play()
 
