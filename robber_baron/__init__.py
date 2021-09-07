@@ -13,9 +13,9 @@ from typing import Any, Dict, Optional
 
 
 class Browser:
-    def __init__(self, driver_class: WebDriver = webdriver.Chrome):
+    def __init__(self, driver: Optional[WebDriver] = None):
         """Create a new browser."""
-        self._driver: WebDriver = driver_class()
+        self._driver: WebDriver = driver or webdriver.Chrome()
 
     def get(self, url: str):
         """Get a page by URL."""

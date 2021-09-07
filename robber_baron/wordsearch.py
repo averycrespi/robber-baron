@@ -78,7 +78,7 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     # We need to be able to intercept requests for this game
-    bot = WordSearchBot(browser=Browser(webdriver.Chrome))
+    bot = WordSearchBot(browser=Browser(driver=webdriver.Chrome()))
     if args.login:
         bot.login()
     bot.play()
