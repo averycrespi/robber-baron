@@ -55,6 +55,9 @@ class WordTwistBot(Bot):
         )
         self.browser.find_element("form#gameover").submit()
 
+        print("Verifying submission ...")
+        _ = self.browser.find_element("div.solcontainer")
+
 
 def parse_args():
     """Parse command-line arguments."""
@@ -67,12 +70,17 @@ def parse_args():
         choices=list(Size),
         help="Board size; default '4'",
     )
+    parser.add_argument(
+        "--login", action="store_true", help="Login to Puzzle Baron account"
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
     bot = WordTwistBot()
+    if args.login:
+        bot.login()
     bot.play(args.board_size)
 
     input("Press enter to quit: ")

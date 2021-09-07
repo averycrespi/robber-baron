@@ -123,6 +123,10 @@ class CampsitesBot(Bot):
         )
         self.browser.find_element("form#gameform").submit()
 
+        print("Verifying submission ...")
+        congrats = self.browser.find_element("div#container_left > h1.header_font")
+        assert congrats.get_attribute("innerText") == "Congratulations!"
+
 
 def parse_args():
     """Parse command-line arguments."""
@@ -143,12 +147,17 @@ def parse_args():
         choices=list(Difficulty),
         help="Puzzle difficulty; default 'easy'",
     )
+    parser.add_argument(
+        "--login", action="store_true", help="Login to Puzzle Baron account"
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
     bot = CampsitesBot()
+    if args.login:
+        bot.login()
     bot.play(args.size, args.difficulty)
 
     input("Press enter to quit: ")

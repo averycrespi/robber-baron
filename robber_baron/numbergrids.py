@@ -83,7 +83,7 @@ class NumbergridsBot(Bot):
         padded_col_clues = list(map(pad, col_clues))
 
         print("Solving problem instance ...")
-        model_file = Path(__file__).parent / "models" / "numbergrid.mzn"
+        model_file = Path(__file__).parent / "models" / "numbergrids.mzn"
         instance_params = {
             "grid_size": grid_size,
             "num_clues": max_clues,
@@ -109,6 +109,10 @@ class NumbergridsBot(Bot):
         )
         self.browser.find_element("form#gameform").submit()
 
+        print("Verifying submission ...")
+        congrats = self.browser.find_element("div#container_left > h1.header_font")
+        assert congrats.get_attribute("innerText") == "Congratulations!"
+
 
 def parse_args():
     """Parse command-line arguments."""
@@ -129,6 +133,9 @@ def parse_args():
         choices=list(Difficulty),
         help="Puzzle difficulty; default 'very_easy'",
     )
+    parser.add_argument(
+        "--login", action="store_true", help="Login to Puzzle Baron account"
+    )
     return parser.parse_args()
 
 
@@ -136,6 +143,8 @@ if __name__ == "__main__":
     args = parse_args()
     # Chuffed has much better performance than Gecode for this problem
     bot = NumbergridsBot(solver=ConstraintSolver("chuffed"))
+    if args.login:
+        bot.login()
     bot.play(args.size, args.difficulty)
 
     input("Press enter to quit: ")

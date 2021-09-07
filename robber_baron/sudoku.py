@@ -62,6 +62,9 @@ class SudokuBot(Bot):
         print("Submitting game ...")
         self.browser.execute_script("window.xmlhttpPost2('check.php')")
 
+        print("Verifying submission ...")
+        _ = self.browser.find_element('div#widgetresponse a[href="init.php"]')
+
 
 def parse_args():
     """Parse command-line arguments."""
@@ -74,12 +77,17 @@ def parse_args():
         choices=list(Difficulty),
         help="Puzzle difficulty; default 'easy'",
     )
+    parser.add_argument(
+        "--login", action="store_true", help="Login to Puzzle Baron account"
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
     bot = SudokuBot()
+    if args.login:
+        bot.login()
     bot.play(args.difficulty)
 
     input("Press enter to quit: ")

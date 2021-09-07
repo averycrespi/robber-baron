@@ -1,4 +1,5 @@
 from minizinc import Instance, Model, Solver
+import os
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -83,4 +84,22 @@ class Bot:
 
     def login(self):
         """Login to a Puzzle Baron account."""
-        return NotImplemented
+        username = os.getenv("PB_USERNAME")
+        if not username:
+            raise ValueError("missing username; please set PB_USERNAME")
+
+        password = os.getenv("PB_PASSWORD")
+        if not password:
+            raise ValueError("missing password; please set PB_PASSWORD")
+
+        login_url = "https://wordtwist.puzzlebaron.com/"
+        print(f"Loading login url: {login_url} ...")
+        self.browser.get(login_url)
+
+        print(f"Logging in as: {username} ...")
+        self.browser.find_element("input#idLoginUserName").send_keys(username)
+        self.browser.find_element("input#idLoginPassword").send_keys(password)
+        self.browser.find_element("input#idLoginBtn").click()
+
+        print("Verifying login ...")
+        _ = self.browser.find_element("a.loggedin_username")

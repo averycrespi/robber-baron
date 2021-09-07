@@ -61,17 +61,26 @@ class WordSearchBot(Bot):
         )
         self.browser.find_element("form#gameover").submit()
 
+        print("Verifying submission ...")
+        congrats = self.browser.find_element("div#container_wide h1.header_font")
+        assert congrats.get_attribute("innerText") == "Congratulations!"
+
 
 def parse_args():
     """Parse command-line arguments."""
     parser = ArgumentParser(description="Play a Word Search game")
+    parser.add_argument(
+        "--login", action="store_true", help="Login to Puzzle Baron account"
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
-    _ = parse_args()
+    args = parse_args()
     # We need to be able to intercept requests for this game
     bot = WordSearchBot(browser=Browser(webdriver.Chrome))
+    if args.login:
+        bot.login()
     bot.play()
 
     input("Press enter to quit: ")

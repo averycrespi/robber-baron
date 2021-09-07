@@ -22,6 +22,9 @@ poetry install
 
 # E.g. run the WordTwist bot
 poetry run python robber_baron/wordtwist.py
+
+# E.g. run the Campsites bot after logging in
+PB_USERNAME=username PB_PASSWORD=password poetry run python robber_baron/campsites.py --login
 ```
 
 ## Available bots
