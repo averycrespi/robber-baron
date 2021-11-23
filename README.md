@@ -4,7 +4,7 @@
 
 ## Disclaimer
 
-These bots probably violates Puzzle Baron's Site Terms & Rules. Use at your own risk!
+These bots probably violate Puzzle Baron's Site Terms & Rules. Use at your own risk!
 
 ## Requirements
 
